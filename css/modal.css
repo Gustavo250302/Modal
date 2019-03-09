@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+html, body{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.overflow-hidden{overflow: hidden}
+
+.modal-modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 500vh;
+    justify-content: center;
+    z-index: 10;
+}
+.modal-modal.show{display: block;}
+
+.modal-modal > .overflow-modal {
+    overflow: auto;
+    width: 100%;
+    height: 20%;
+}
+
+.modal-modal > .overflow-modal > .container-modal {
+    overflow: auto;
+    margin: 50px auto;
+    background-color: #fff;
+}
+.modal-modal.modal-l   > .overflow-modal > .container-modal {width: 100%;}
+.modal-modal.modal-m-l > .overflow-modal > .container-modal {width: 80%;}
+.modal-modal.modal-m   > .overflow-modal > .container-modal {width: 60%;}
+.modal-modal.modal-m-s > .overflow-modal > .container-modal {width: 40%;}
+.modal-modal.modal-s   > .overflow-modal > .container-modal {width: 20%;}
+
+.modal-modal > .overflow-modal > .container-modal > div {
+    overflow-y: auto;
+}
+.modal-modal > .overflow-modal > .container-modal > div:not(.body-modal) {
+    overflow-x: hidden;
+}
+
+.modal-modal > .overflow-modal > .container-modal > .header-modal {
+    max-height: 140px;
+    padding: auto;
+    font-size: 1em;
+    text-align: center;
+    background-color: rgba(103, 117, 240, 0.9);
+    color: #fff;
+    border-bottom: 1px solid rgba(103, 117, 240, 1);
+}
+.modal-modal > .overflow-modal > .container-modal > .body-modal {
+    max-height: 200px;
+    padding: 10px;
+    font-size: 0.9em;
+    background-color: #fff;
+    color: #000;
+}
+.modal-modal > .overflow-modal > .container-modal > .footer-modal {
+    max-height: 100px;
+    padding: 10px;
+    font-size: 0.9em;
+    background-color: rgba(103, 117, 240, 0.9);
+    color: #fff;
+    border-top: 1px solid rgba(103, 117, 240, 1);
+}
+
+.modal-modal > .overflow-modal > .container-modal > div:first-child > .close-modal {
+    float: right;
+    cursor: pointer;
+    margin: 10px 10px auto auto;
+}
+.modal-modal > .overflow-modal > .container-modal > div:first-child > .close-modal:hover {
+    transition: .6s;
+    opacity: .5;
+}

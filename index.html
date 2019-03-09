@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Modal</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/modal.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+
+<div align="center">
+    <h1>Modal</h1>
+</div>
+
+<a style="text-decoration: none;color: #000;" href="https://bgninfo.com/" target="_blank" data-modal="modal">Open Modal</a>
+<ol>
+    <li data-modal="modal">Open Modal</li>
+    <li data-modal="modal">Open Modal</li>
+    <li data-modal="modal">Open Modal</li>
+    <li data-modal="modal">Open Modal</li>
+    <li data-modal="modal">Open Modal</li>
+    <li data-modal="modal">Open Modal</li>
+</ol>
+<button type="button" data-modal="modal">Open Modal</button>
+                    <!--data-modal="modal id that will open" -->
+<div id="modal-div"></div>
+
+
+<br><br><br>
+<button type="button" data-modal="modal2">Open Modal 2</button>
+<div id="modal-div2"></div>
+
+
+<script type="text/javascript">
+    var date = new Date();
+    var year = date.getFullYear()
+
+    const header = `<h2>Modal Title</h2>`;
+    const body = `
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar quam a enim feugiat, ut blandit elit semper. Aenean tincidunt erat tortor, ac feugiat est faucibus ut. Nunc non quam iaculis, malesuada sapien eu, vehicula leo. Donec non lectus varius tellus ultricies semper. Suspendisse potenti. Nulla aliquet iaculis justo, at cursus lacus. Donec nec eros eget lectus mattis luctus. Suspendisse malesuada massa ut orci pellentesque pretium. Ut a vestibulum nisl, sit amet porttitor erat. Mauris quis imperdiet dolor.</p>
+
+    <p>Etiam quis libero commodo, mollis mi in, luctus mi. Morbi risus nisl, eleifend vitae mi in, scelerisque vehicula leo. Fusce ullamcorper tempus sem, sed rutrum lorem interdum eget. Etiam luctus tellus at sapien commodo, id finibus lorem elementum. Vivamus congue lorem vitae eros vestibulum, id egestas nunc cursus. Morbi pretium suscipit ante. Vestibulum risus dui, egestas et dui eget, rutrum sagittis nulla. Sed non mauris ex.</p>
+
+    <p>Suspendisse id sem vitae nunc consectetur pellentesque vitae eget arcu. Aliquam vitae ornare nibh. Mauris vitae dui iaculis, ullamcorper lectus at, viverra turpis. Aliquam pharetra commodo odio nec rhoncus. Nullam luctus ante massa, non aliquet sem venenatis ac. Praesent tincidunt leo quis nunc finibus aliquet. Nunc lobortis tincidunt magna. Cras vel rhoncus justo. Aenean volutpat vel libero eget molestie. Suspendisse sed nibh metus. Nunc varius, mi nec sagittis laoreet, turpis erat eleifend tellus, quis dignissim ligula odio sit amet ante. Proin massa eros, laoreet id finibus ut, molestie et nisl. Ut sit amet tristique dui. Morbi viverra interdum enim a scelerisque. Curabitur elementum, metus at volutpat tincidunt, purus leo vulputate orci, id lacinia dolor ex quis dolor.</p>
+
+    <p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eleifend gravida eros vel iaculis. Sed tincidunt ac quam vel bibendum. Pellentesque sit amet semper elit. Donec luctus mauris ut ipsum ultricies luctus. Quisque aliquet sem tincidunt iaculis sodales. Phasellus tincidunt purus eu nisl cursus, vehicula tempus tortor facilisis.</p>
+
+    <p>Donec lectus lectus, rutrum quis ultricies eget, pretium vulputate nulla. Donec in pretium quam, ac porttitor sapien. Pellentesque eu consectetur enim. Vivamus nulla mi, tincidunt quis nibh at, vestibulum consequat nibh. Suspendisse non lectus sed augue tempus sodales. Vivamus sed lacus nec erat vehicula luctus nec eu quam. In hac habitasse platea dictumst. Quisque quam mi, finibus quis rutrum eu, condimentum vel velit. Aenean laoreet porta mattis. Sed laoreet egestas erat sed venenatis. Mauris eleifend, massa a elementum tempus, mauris erat feugiat ipsum, ut fermentum lectus nibh sed diam. Duis tincidunt suscipit cursus. Vestibulum lorem nibh, porta a mauris iaculis, feugiat vulputate enim. Proin felis leo, faucibus in eros vel, condimentum dignissim nunc.</p>
+    `;
+    const footer = `<a style="text-decoration: none;color: #fff;" href="https://bgninfo.com/" target="_blank">&copy;${year} BGNiNFO</a>`;
+
+    const modal = new Modal('#modal-div', 'modal');
+                /*new Modal(element to create the modal | modal id created)*/
+    modal.size();
+    /*(optional) modal.size((optional) size for 1 to 5: 1 = small ; 2 = medium to small ; 3 = medium ; 4 = medium for large ; 5 = large)*/
+    modal.colorHeader('rgba(103, 117, 240, 1)', '#fff'); /**/
+    /*(optional) modal.colorHeader((optional) in RGBA: background color and border color in -0.1 of transparency | (optional) any color format: text color)*/
+    modal.colorBody('rgba(255, 255, 255, 1)', '#000');
+    /*(optional) modal.colorBody((optional) in RGBA: background color and border color in -0.1 of transparency | (optional) any color format: text color)*/
+    modal.colorFooter();
+    /*(optional) modal.colorFooter((optional) in RGBA: background color and border color in -0.1 of transparency | (optional) any color format: text color)*/
+    modal.borderRadius('5px');
+    /*(optional) modal.borderRadius((optional) border radius)*/
+    modal.divisions();
+    /*modal.divisions((optional) divisions of the modal in format of array: h = header ; b = body ; f = footer)*/
+    /*for example: modal.divisions(['b', 'f'])*/
+    modal.html([header ,body, footer]);
+    /*modal.html((optional) content of the respective divisions of the modal in format of array)*/
+    /*for example: modal.html(['Body content', 'Footer content'])*/
+    modal.create();
+
+
+
+
+    const modal2 = new Modal('#modal-div2', 'modal2');
+    modal2.divisions();
+    modal2.html();
+    modal2.create();
+
+</script>
+</body>
+</html>
